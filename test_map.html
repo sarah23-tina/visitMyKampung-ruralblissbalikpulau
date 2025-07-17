@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Balik Pulau Map</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 20px;
+            background-color: #121212;
+            color: #ffffff;
+        }
+        #map-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            max-width: 900px;
+        }
+        iframe {
+            width: 100%;
+            height: 500px;
+            border: none;
+        }
+        .category {
+            margin: 5px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Select a Category</h2>
+    <div>
+        <label class="category"><input type="radio" name="category" value="food"> Food</label>
+        <label class="category"><input type="radio" name="category" value="stall"> Stall</label>
+        <label class="category"><input type="radio" name="category" value="homestay"> Homestay</label>
+        <label class="category"><input type="radio" name="category" value="attraction"> Attraction Place</label>
+        <label class="category"><input type="radio" name="category" value="durian"> Durian Garden</label>
+        <label class="category"><input type="radio" name="category" value="nature"> Nature</label>
+        <label class="category"><input type="radio" name="category" value="animal"> Animal Park</label>
+    </div>
+
+    <div id="map-container">
+        <iframe id="mapFrame" src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d108878.94933125976!2d100.18825811043617!3d5.3323471947824155!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sRestaurants!5e0!3m2!1sen!2smy!4v1742937280857!5m2!1sen!2smy" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+
+    <script>
+        const mapLinks = {
+            food: "https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d108878.94933125976!2d100.18825811043617!3d5.3323471947824155!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sRestaurants!5e0!3m2!1sen!2smy!4v1742937280857!5m2!1sen!2smy",
+            stall: "https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d108878.94933125976!2d100.18825811043617!3d5.3323471947824155!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sMarket!5e0!3m2!1sen!2smy!4v1742937280857!5m2!1sen!2smy",
+            homestay: "https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d108878.94933125976!2d100.18825811043617!3d5.3323471947824155!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sHomestay!5e0!3m2!1sen!2smy!4v1742937280857!5m2!1sen!2smy",
+            attraction: "https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d108878.94933125976!2d100.18825811043617!3d5.3323471947824155!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sTourist+Attraction!5e0!3m2!1sen!2smy!4v1742937280857!5m2!1sen!2smy",
+            durian: "https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d108878.94933125976!2d100.18825811043617!3d5.3323471947824155!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sDurian+Farm!5e0!3m2!1sen!2smy!4v1742937280857!5m2!1sen!2smy",
+            nature: "https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d108878.94933125976!2d100.18825811043617!3d5.3323471947824155!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sNature+Park!5e0!3m2!1sen!2smy!4v1742937280857!5m2!1sen!2smy",
+            animal: "https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d108878.94933125976!2d100.18825811043617!3d5.3323471947824155!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sZoo!5e0!3m2!1sen!2smy!4v1742937280857!5m2!1sen!2smy"
+        };
+
+        document.querySelectorAll('input[name="category"]').forEach(radio => {
+            radio.addEventListener('change', function () {
+                document.getElementById('mapFrame').src = mapLinks[this.value];
+            });
+        });
+    </script>
+</body>
+</html>
